@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/satya/DAC_FINAL_PROJECT_2020/SpringREST/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+4071361332.index
+3438643351.index
+1912880694.index
+4134694743.index
+3766928487.index
+1626402279.index

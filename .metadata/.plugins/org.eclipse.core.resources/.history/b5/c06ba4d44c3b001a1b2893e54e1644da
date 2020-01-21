@@ -1,0 +1,113 @@
+package com.app.pojos;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
+public class City 
+{
+	private Integer id;
+	private String city;
+	private String state;
+	private int pincode;
+	private Byte image;
+
+	private Status status;
+	
+	private List<Property> property_id = new ArrayList<>();
+
+	public City() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public City(String city, String state, int pincode, Byte image, Status status) {
+		super();
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
+		this.image = image;
+	}
+	
+	//FK mapping starts here
+
+	@OneToMany(mappedBy = "city_id",cascade = CascadeType.ALL,orphanRemoval = true)
+	public List<Property> getProperty_id() {
+		return property_id;
+	}
+
+	public void setProperty_id(List<Property> property_id) {
+		this.property_id = property_id;
+	}
+
+	
+	//FK mapping ends here
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public Byte getImage() {
+		return image;
+	}
+
+
+	public void setImage(Byte image) {
+		this.image = image;
+	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+	public int getPincode() {
+		return pincode;
+	}
+
+
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+
+	@Override
+	public String toString() {
+		return "City [id=" + id + ", city=" + city + ", state=" + state + ", pincode=" + pincode + ", image=" + image
+				+ "]";
+	}
+
+	
+}

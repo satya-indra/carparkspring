@@ -1,0 +1,93 @@
+package com.app.pojos;
+
+import java.util.Date;
+
+public class Transactions 
+{
+	int id;
+	Status tx_status;
+	float amount;
+	Date txn_date;
+	TransactionType transaction_type; 
+	
+	Order order_id;
+	
+	public Transactions() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Transactions(Status tx_status, float amount, Date txn_date, TransactionType transaction_type) {
+		super();
+		this.tx_status = tx_status;
+		this.amount = amount;
+		this.txn_date = txn_date;
+		this.transaction_type = transaction_type;
+	}
+	
+	// FK mapping starts
+	
+	public Order getOrder_id() {
+		return order_id;
+	}
+
+	public void setOrder_id(Order order_id) {
+		this.order_id = order_id;
+	}
+	
+	
+	// FK mapping ends
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public int getId() {
+		return id;
+	}
+
+	
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Status getTx_status() {
+		return tx_status;
+	}
+
+	public void setTx_status(Status tx_status) {
+		this.tx_status = tx_status;
+	}
+
+	public float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
+
+	public Date getTxn_date() {
+		return txn_date;
+	}
+
+	public void setTxn_date(Date txn_date) {
+		this.txn_date = txn_date;
+	}
+
+	public TransactionType getTransaction_type() {
+		return transaction_type;
+	}
+
+	public void setTransaction_type(TransactionType transaction_type) {
+		this.transaction_type = transaction_type;
+	}
+
+	@Override
+	public String toString() {
+		return "Transactions [id=" + id + ", tx_status=" + tx_status + ", amount=" + amount + ", txn_date=" + txn_date
+				+ ", transaction_type=" + transaction_type + "]";
+	}
+	
+	
+	
+
+}

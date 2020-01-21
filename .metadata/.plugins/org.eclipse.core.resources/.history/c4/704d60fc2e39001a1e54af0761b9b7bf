@@ -1,0 +1,13 @@
+package com.app.pojos;
+
+import javax.persistence.Entity;
+import javax.persistence.IdClass;
+
+@Entity
+public class Reviews {
+	int id;
+	String review;
+	int rating;
+	Property p_id;
+	User user_id;
+}

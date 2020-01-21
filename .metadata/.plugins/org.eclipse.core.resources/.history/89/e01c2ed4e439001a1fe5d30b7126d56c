@@ -1,0 +1,25 @@
+package com.app.pojos;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class User 
+{
+	int id;
+	String fname;
+	String lname;
+	String email;
+	String password;
+	Date dob;
+	UserType type;
+	Order order_id;
+	List<UserVehicle> vehicle = new ArrayList<>();
+	Date regdate;
+	
+	
+	
+	
+	
+	
+}

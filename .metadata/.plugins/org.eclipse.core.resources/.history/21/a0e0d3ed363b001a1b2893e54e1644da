@@ -1,0 +1,98 @@
+package com.app.pojos;
+
+import javax.persistence.Entity;
+
+@Entity
+
+public class City 
+{
+	private Integer id;
+	private String city;
+	private String state;
+	private int pincode;
+	private Byte image;
+	
+	Property property_id;
+
+	public City() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public City(String city, String state, int pincode, Byte image) {
+		super();
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
+		this.image = image;
+	}
+	
+	//FK mapping starts here
+
+	public Property getProperty_id() {
+		return property_id;
+	}
+
+	public void setProperty_id(Property property_id) {
+		this.property_id = property_id;
+	}
+	
+	//FK mapping ends here
+
+
+	public Byte getImage() {
+		return image;
+	}
+
+
+	public void setImage(Byte image) {
+		this.image = image;
+	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+	public int getPincode() {
+		return pincode;
+	}
+
+
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+
+	@Override
+	public String toString() {
+		return "City [id=" + id + ", city=" + city + ", state=" + state + ", pincode=" + pincode + ", image=" + image
+				+ "]";
+	}
+
+	
+}

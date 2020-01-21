@@ -1,0 +1,15 @@
+package com.app.pojos;
+
+
+@Entity
+
+public class Address 
+{
+	int id;
+	Property property_id;
+	String City;
+	String State;
+	double pincode;
+	
+	
+}

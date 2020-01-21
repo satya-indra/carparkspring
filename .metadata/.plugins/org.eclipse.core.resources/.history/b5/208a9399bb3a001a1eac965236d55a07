@@ -1,0 +1,31 @@
+package com.app.pojos;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Order 
+{
+	int id;
+	Status status;
+	Date booking_date;
+	
+	
+	//List<User> user_id = new ArrayList<>();
+	
+	//List<Property> property_id = new ArrayList<>();
+	
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Order(Status status, Date booking_date) {
+		super();
+		this.status = status;
+		this.booking_date = booking_date;
+	}
+	
+	
+	
+}

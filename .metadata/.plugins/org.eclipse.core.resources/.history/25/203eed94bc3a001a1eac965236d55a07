@@ -1,0 +1,54 @@
+package com.app.pojos;
+
+import java.math.BigDecimal;
+
+public class Location 
+{
+	private Integer id;
+	private BigDecimal lat;
+	private BigDecimal lon;
+	
+	//Property property_id;
+	
+	public Location() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Location(BigDecimal lat, BigDecimal lon) {
+		super();
+		this.lat = lat;
+		this.lon = lon;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public BigDecimal getLat() {
+		return lat;
+	}
+
+	public void setLat(BigDecimal lat) {
+		this.lat = lat;
+	}
+
+	public BigDecimal getLon() {
+		return lon;
+	}
+
+	public void setLon(BigDecimal lon) {
+		this.lon = lon;
+	}
+
+	@Override
+	public String toString() {
+		return "Location [id=" + id + ", lat=" + lat + ", lon=" + lon + "]";
+	}
+	
+	
+
+}

@@ -1,0 +1,18 @@
+package com.app.pojos;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Reviews {
+	int id;
+	String review;
+	int rating;
+	Date reg_date;
+	
+	Property p_id;
+	User user_id;
+	
+	
+}

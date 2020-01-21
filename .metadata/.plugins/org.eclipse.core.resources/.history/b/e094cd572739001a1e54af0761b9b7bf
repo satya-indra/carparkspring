@@ -1,0 +1,10 @@
+package com.app.pojos;
+
+import java.io.Serializable;
+
+public class ReviewId implements Serializable
+{
+	private int user_id;
+	private int property_id;
+
+}

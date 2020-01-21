@@ -1,0 +1,16 @@
+package com.app.pojos;
+
+import java.util.Date;
+
+public class Slot 
+{
+	private Integer id;
+	private Date start_date;
+	
+	private Property property_id;
+	private User user_id;
+	Status status;
+	
+	
+
+}

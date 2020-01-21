@@ -1,0 +1,152 @@
+package com.app.pojos;
+import java.math.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+public class Property 
+{
+	private int id;
+	private String house_no;
+	private String street_name;
+	private VehicleType vehicle;
+	private int capacity;
+	private Date reg_date;
+	
+	private User user_id;
+	
+	private City city_id;
+	
+	private List<Reviews> reviews = new ArrayList<>();
+	
+	private List<Order> order_id = new ArrayList<>();
+	
+	private Location location_id;
+	
+	public Property() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Property(String house_no, String street_name, VehicleType vehicle, int capacity, Date reg_date) {
+		super();
+		this.house_no = house_no;
+		this.street_name = street_name;
+		this.vehicle = vehicle;
+		this.capacity = capacity;
+		this.reg_date = reg_date;
+	}
+
+	//FK mapping starts here
+
+	
+	public User getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(User user_id) {
+		this.user_id = user_id;
+	}
+
+	//INVERSE side is mapped with OWNING side. 
+	@OneToOne(mappedBy = "property_id", cascade = CascadeType.ALL, orphanRemoval = true)
+	public City getcity_id() {
+		return city_id;
+	}
+
+	public void setcity_id(City city_id) {
+		this.city_id = city_id;
+	}
+
+	@OneToMany(mappedBy = "property_id", cascade = CascadeType.ALL, orphanRemoval = true)
+	public List<Reviews> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Reviews> reviews) {
+		this.reviews = reviews;
+	}
+
+	public List<Order> getOrder_id() {
+		return order_id;
+	}
+
+	public void setOrder_id(List<Order> order_id) {
+		this.order_id = order_id;
+	}
+
+	public Location getLocation_id() {
+		return location_id;
+	}
+
+	public void setLocation_id(Location location_id) {
+		this.location_id = location_id;
+	}
+	
+	//FK mapping ends here
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getHouse_no() {
+		return house_no;
+	}
+
+	public void setHouse_no(String house_no) {
+		this.house_no = house_no;
+	}
+
+	public String getStreet_name() {
+		return street_name;
+	}
+
+	public void setStreet_name(String street_name) {
+		this.street_name = street_name;
+	}
+
+	public VehicleType getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(VehicleType vehicle) {
+		this.vehicle = vehicle;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public Date getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
+	}
+
+	@Override
+	public String toString() {
+		return "Property [id=" + id + ", house_no=" + house_no + ", street_name=" + street_name + ", vehicle=" + vehicle
+				+ ", capacity=" + capacity + ", reg_date=" + reg_date + "]";
+	}
+	
+	
+
+}

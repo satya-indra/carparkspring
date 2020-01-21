@@ -1,0 +1,12 @@
+package com.app.pojos;
+
+public class Slot 
+{
+	Integer id;
+	Property property_id;
+	User user_id;
+	Date start_date;
+	
+	
+
+}

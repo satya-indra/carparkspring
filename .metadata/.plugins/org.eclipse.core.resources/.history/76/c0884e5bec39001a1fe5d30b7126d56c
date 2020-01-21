@@ -1,0 +1,12 @@
+package com.app.pojos;
+
+import java.math.BigDecimal;
+
+public class Location 
+{
+	private Integer id;
+	private BigDecimal lat;
+	private BigDecimal lon;
+	//Property property_id;
+
+}

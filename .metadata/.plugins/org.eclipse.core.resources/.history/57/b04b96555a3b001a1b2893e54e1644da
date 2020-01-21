@@ -1,0 +1,84 @@
+package com.app.pojos;
+
+import java.util.Date;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+public class Slot 
+{
+	private Integer id;
+	private Date start_date;
+	
+	Status status;
+	
+	private Property property_id;
+	private User user_id;
+	
+	
+
+	public Slot() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Slot(Date start_date, Status status) {
+		super();
+		this.start_date = start_date;
+		this.status = status;
+	}
+	
+	// Mapping reference here
+	
+	@ManyToOne
+	@JoinColumn(name ="property_id")
+	public Property getProperty_id() {
+		return property_id;
+	}
+
+	public void setProperty_id(Property property_id) {
+		this.property_id = property_id;
+	}
+
+	public User getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(User user_id) {
+		this.user_id = user_id;
+	}
+	
+	//Mapping reference ends here
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Date getStart_date() {
+		return start_date;
+	}
+
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "Slot [id=" + id + ", start_date=" + start_date + ", status=" + status + "]";
+	}
+	
+	
+	
+
+}

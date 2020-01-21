@@ -1,0 +1,93 @@
+package com.app.pojos;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Order 
+{
+	int id;
+	Status status;
+	Date booking_date;
+	
+	
+	List<User> user_id = new ArrayList<>();
+	
+	List<Property> property_id = new ArrayList<>();
+	
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Order(Status status, Date booking_date) {
+		super();
+		this.status = status;
+		this.booking_date = booking_date;
+	}
+
+	//FK mapping starts here
+
+
+	public List<User> getUser_id() {
+		return user_id;
+	}
+
+
+	public void setUser_id(List<User> user_id) {
+		this.user_id = user_id;
+	}
+
+
+	public List<Property> getProperty_id() {
+		return property_id;
+	}
+
+
+	public void setProperty_id(List<Property> property_id) {
+		this.property_id = property_id;
+	}
+
+	//FK mapping ends here
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public Status getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+
+	public Date getBooking_date() {
+		return booking_date;
+	}
+
+
+	public void setBooking_date(Date booking_date) {
+		this.booking_date = booking_date;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", status=" + status + ", booking_date=" + booking_date + "]";
+	}
+	
+	
+	
+	
+	
+}

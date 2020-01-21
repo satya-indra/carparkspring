@@ -1,0 +1,10 @@
+package com.app.pojos;
+
+public class UserVehicle {
+	int id;
+	String vehicle_no;
+	VehicleType v_type;
+	User user_id;
+	reg_date Date;
+
+}

@@ -1,0 +1,15 @@
+package com.app.pojos;
+
+import java.util.Date;
+
+public class Transactions 
+{
+	int id;
+	Order order_id;
+	Status tx_status;
+	float amount;
+	Date date;
+	TransactionType transaction_type; 
+	
+
+}

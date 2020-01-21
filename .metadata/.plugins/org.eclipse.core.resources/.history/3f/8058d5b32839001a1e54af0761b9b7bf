@@ -1,0 +1,9 @@
+package com.app.pojos;
+
+public class Reviews {
+	int id;
+	String review;
+	int rating;
+	Property p_id;
+	User user_id;
+}

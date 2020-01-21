@@ -1,0 +1,108 @@
+package com.app.pojos;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.OneToOne;
+
+public class Order 
+{
+	private Integer id;
+	private Status status;
+	private Date booking_date;
+	
+	
+	private List<User> user_id = new ArrayList<>();
+	
+	private int property_id;
+	
+	Transactions txn_id;
+	
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Order(Status status, Date booking_date) {
+		super();
+		this.status = status;
+		this.booking_date = booking_date;
+	}
+
+	//FK mapping starts here
+
+
+	public List<User> getUser_id() {
+		return user_id;
+	}
+
+
+	public void setUser_id(List<User> user_id) {
+		this.user_id = user_id;
+	}
+
+
+	public int getProperty_id() {
+		return property_id;
+	}
+
+
+	public void setProperty_id(int property_id) {
+		this.property_id = property_id;
+	}
+	
+	@OneToOne(mappedBy = "order_id", cascade = CascadeType.ALL, orphanRemoval = true)
+	public Transactions getTxn_id() {
+		return txn_id;
+	}
+
+	
+	public void setTxn_id(Transactions txn_id) {
+		this.txn_id = txn_id;
+	}
+	
+	//FK mapping ends here
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public Status getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+
+	public Date getBooking_date() {
+		return booking_date;
+	}
+
+
+	public void setBooking_date(Date booking_date) {
+		this.booking_date = booking_date;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", status=" + status + ", booking_date=" + booking_date + "]";
+	}
+	
+	
+	
+	
+	
+}

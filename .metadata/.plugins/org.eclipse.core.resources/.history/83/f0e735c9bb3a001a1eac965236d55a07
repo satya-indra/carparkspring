@@ -1,0 +1,23 @@
+package com.app.pojos;
+
+import javax.persistence.Entity;
+
+@Entity
+
+public class City 
+{
+	private Integer id;
+	private String city;
+	private String state;
+	private int pincode;
+	
+	
+	//Property property_id;
+
+	
+	public City() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

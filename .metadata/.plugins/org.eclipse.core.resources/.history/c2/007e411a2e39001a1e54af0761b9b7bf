@@ -1,0 +1,17 @@
+package com.app.pojos;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.IdClass;
+
+@Entity
+@IdClass(Reviews.class)
+public class Reviews implements Serializable
+{
+	int id;
+	String review;
+	int rating;
+	Property p_id;
+	User user_id;
+}

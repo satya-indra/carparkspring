@@ -1,0 +1,57 @@
+package com.app.pojos;
+
+import java.util.Date;
+
+public class Slot 
+{
+	private Integer id;
+	private Date start_date;
+	
+	Status status;
+	
+	private Property property_id;
+	private User user_id;
+	
+	public Slot() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Slot(Date start_date, Status status) {
+		super();
+		this.start_date = start_date;
+		this.status = status;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Date getStart_date() {
+		return start_date;
+	}
+
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "Slot [id=" + id + ", start_date=" + start_date + ", status=" + status + "]";
+	}
+	
+	
+	
+
+}

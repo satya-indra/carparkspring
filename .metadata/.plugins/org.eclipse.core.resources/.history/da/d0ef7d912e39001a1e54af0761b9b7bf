@@ -1,0 +1,56 @@
+package com.app.pojos;
+
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Embeddable
+public class ReviewId implements Serializable
+{
+	@Id
+	
+	private int user_id;
+	@Id
+	private int property_id;
+	
+	public ReviewId() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ReviewId(int user_id, int property_id) {
+		super();
+		this.user_id = user_id;
+		this.property_id = property_id;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + property_id;
+		result = prime * result + user_id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ReviewId other = (ReviewId) obj;
+		if (property_id != other.property_id)
+			return false;
+		if (user_id != other.user_id)
+			return false;
+		return true;
+	}
+	
+	
+
+}

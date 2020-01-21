@@ -1,0 +1,17 @@
+package com.app.pojos;
+
+import javax.persistence.Entity;
+
+@Entity
+
+public class Address 
+{
+	int id;
+	String City;
+	String State;
+	double pincode;
+	Property property_id;
+
+	
+	
+}
