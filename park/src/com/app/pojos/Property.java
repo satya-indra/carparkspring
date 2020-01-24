@@ -9,65 +9,73 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
 public class Property 
 {
 	private Integer id;
+	
+	private BigDecimal lat;
+	private BigDecimal lng;
+	
 	private String house_no;
 	private String street_name;
+	
+	private String city;
+	private String state;
+	
 	private int capacity;
-	private Date propertyreg_date;	
+	private Date propertyreg_date;
+	
 	private User owner_id;
+		
 	
-	private City city_id;
-	
+
+	@JsonIgnore
 	private List<Reviews> reviews = new ArrayList<>();
 	
+	@JsonIgnore
 	private List<Orders> order_id = new ArrayList<>();
 	
-	private Location location_id;
 	
 	
 	public Property() {
 		this.capacity=1;
 	}
 
-	public Property(String house_no, String street_name,  int capacity, Date propertyreg_date) {
+	public Property(String house_no, String street_name,  int capacity, Date propertyreg_date, BigDecimal lat, BigDecimal lng) {
 		super();
 		this.house_no = house_no;
 		this.street_name = street_name;
 		this.capacity = 1;
 		this.propertyreg_date = propertyreg_date;
+		this.lat=lat;
+		this.lng=lng;
 	}
 
 	//FK mapping starts here
+	
+
+	
+	
 
 	@OneToOne
 	@JoinColumn(name = "owner_id")
-	public User getowner_id() {
+	public User getOwner_id() {
 		return owner_id;
 	}
 
-	public void setowner_id(User owner_id) {
+	public void setOwner_id(User owner_id) {
 		this.owner_id = owner_id;
 	}
 
-	//********************************************************//
-	//INVERSE side is mapped with OWNING side. 
-	@ManyToOne
-	@JoinColumn(name = "city_id")
-	public City getcity_id() {
-		return city_id;
-	}
-
-	public void setcity_id(City city_id) {
-		this.city_id = city_id;
-	}
+	
 
 	@OneToMany(mappedBy = "property_id", cascade = CascadeType.ALL, orphanRemoval = true)
 	public List<Reviews> getReviews() {
@@ -88,14 +96,6 @@ public class Property
 		this.order_id = order_id;
 	}
 
-	@OneToOne(mappedBy = "property_id",cascade = CascadeType.ALL,orphanRemoval = true)
-	public Location getLocation_id() {
-		return location_id;
-	}
-
-	public void setLocation_id(Location location_id) {
-		this.location_id = location_id;
-	}
 	
 	
 	//********************************************************//
@@ -138,18 +138,60 @@ public class Property
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	public Date getpropertyreg_date() {
+	public Date getPropertyreg_date() {
 		return propertyreg_date;
 	}
 
-	public void setpropertyreg_date(Date propertyreg_date) {
+	public void setPropertyreg_date(Date propertyreg_date) {
 		this.propertyreg_date = propertyreg_date;
+	}
+	
+	public BigDecimal getLat() {
+		return lat;
+	}
+
+	public void setLat(BigDecimal lat) {
+		this.lat = lat;
+	}
+
+	public BigDecimal getLng() {
+		return lng;
+	}
+
+	public void setLng(BigDecimal lon) {
+		this.lng = lon;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	@Override
 	public String toString() {
 		return "Property [id=" + id + ", house_no=" + house_no + ", street_name=" + street_name +  ", capacity=" + capacity + ", propertyreg_date=" + propertyreg_date + "]";
 	}
+	
+	public void addUser(User user)
+	{
+	
+		
+	}
+	
+	
+	
+	
 	
 	
 

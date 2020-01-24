@@ -23,7 +23,7 @@ public class Transactions
 	private float amount;
 	private Date txn_date;
 	private TransactionType transaction_type; 
-	 private Orders order_id;
+	private Orders order_id;
 	
 	public Transactions() {
 		// TODO Auto-generated constructor stub

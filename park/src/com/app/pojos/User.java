@@ -17,6 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User 
 {
@@ -25,30 +27,33 @@ public class User
 	private String lname;
 	private String email;
 	private String password;
+	
 	@Transient
 	private String newPassword;
 	
 
-
 	private Date dob;
 	private UserType type;
 	private Date regdate;
-	private Byte image;
 	
-		
-	List<UserVehicle> vehicle_id = new ArrayList<>();
 	
+	@JsonIgnore
 	List<Property> property_id = new ArrayList<>();
 	
+	@JsonIgnore
 	List<Orders> order_id = new ArrayList<>();
 	
+	@JsonIgnore
 	List<Reviews> review_id = new ArrayList<>();
 	
 	public User() {
 	}
+	
+	public User(int id) {
+	}
 
-	public User(String fname, String lname, String email, String password, Date dob, UserType type, Date regdate,
-			Byte image) {
+
+	public User(String fname, String lname, String email, String password, Date dob, UserType type, Date regdate) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
@@ -57,21 +62,13 @@ public class User
 		this.dob = dob;
 		this.type = type;
 		this.regdate = regdate;
-		this.image = image;
 	}
 	
 	//***********************************************************************
 
 	// FK mapping starts
 
-	@OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<UserVehicle> getVehicle_id() {
-		return vehicle_id;
-	}
-
-	public void setVehicle_id(List<UserVehicle> vehicle_id) {
-		this.vehicle_id = vehicle_id;
-	}
+	
 	
 	@OneToMany(mappedBy = "owner_id", cascade = CascadeType.ALL, orphanRemoval = true)
 	public List<Property> getProperty_id() {
@@ -115,7 +112,7 @@ public class User
 	}
 	
 	
-	
+	@Transient
 	public String getNewPassword() {
 		return newPassword;
 	}
@@ -125,17 +122,6 @@ public class User
 		this.newPassword = newPassword;
 	}
 
-	@Lob
-	public Byte getImage() {
-		return image;
-	}
-
-	public void setImage(Byte image) {
-		this.image = image;
-	}
-
-
-	
 
 	public String getFname() {
 		return fname;
@@ -212,7 +198,20 @@ public class User
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", password="
-				+ password + ", dob=" + dob + ", type=" + type + ", regdate=" + regdate + ", image=" + image + "]";
+				+ password + ", dob=" + dob + ", type=" + type + ", regdate=" + regdate + "]";
+	}
+	
+	public void addProperty(Property property)
+	{
+		property_id.add(property);		
+		property.setOwner_id(this);
+	}
+	
+	
+	public void removeProperty(Property property)
+	{
+		property_id.remove(property);
+		property.setOwner_id(null);
 	}
 	
 	

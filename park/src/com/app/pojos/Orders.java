@@ -24,19 +24,25 @@ public class Orders
 	private Integer id;
 	private Status status;
 	private Date booking_date;
+	private Date end_date;
+
 	private User user_id;
 	private Property property_id;
 	private Transactions txn_id;
 	
+	
+
+
 	public Orders() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public Orders(Status status, Date booking_date) {
+	public Orders(Status status, Date booking_date, Date end_date) {
 		super();
 		this.status = status;
 		this.booking_date = booking_date;
+		this.end_date=end_date;
 	}
 
 	//FK mapping starts here
@@ -47,7 +53,6 @@ public class Orders
 		return user_id;
 	}
 
-	
 	public void setUser_id(User user_id) {
 		this.user_id = user_id;
 	}
@@ -104,15 +109,19 @@ public class Orders
 	public void setBooking_date(Date booking_date) {
 		this.booking_date = booking_date;
 	}
+	
+	public Date getEnd_date() {
+		return end_date;
+	}
 
+
+	public void setEnd_date(Date end_date) {
+		this.end_date = end_date;
+	}
 
 	@Override
 	public String toString() {
 		return "Orders [id=" + id + ", status=" + status + ", booking_date=" + booking_date + "]";
-	}
-	
-	
-	
-	
+	}	
 	
 }
